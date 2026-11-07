@@ -271,10 +271,12 @@
           const smile = this.add.arc(0,-3,9,20,155,false,0xa85255,1).setStrokeStyle(1.5,0xa85255,1);
           const pack = this.add.rectangle(-15,5,9,18,0xf1a74f).setRounded(4);
           const tuft = this.add.triangle(0,-17,-5,2,0,-8,5,2,0xffd264);
-          this.player = this.add.container(480,428,[shadow,pack,body,belly,hood,face,eyeL,eyeR,smile,tuft]).setDepth(5);
+          const avatar = this.add.container(0,0,[pack,body,belly,hood,face,eyeL,eyeR,smile,tuft]);
+          this.player = this.add.container(480,428,[shadow,avatar]).setDepth(5);
+          this.playerVisual = avatar;
           this.physics.add.existing(this.player);
           this.player.body.setCircle(15, -15, -14).setCollideWorldBounds(true).setMaxVelocity(240,240);
-          this.tweens.add({ targets: this.player, y: 424, duration: 520, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+          this.tweens.add({ targets: this.playerVisual, y: -4, duration: 520, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
         }
         showIdleScene() {
           this.player.setPosition(480,428); this.player.body.setVelocity(0,0);
