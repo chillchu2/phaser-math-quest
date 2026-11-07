@@ -269,7 +269,7 @@
           const face = this.add.ellipse(0,-6,23,19,0xffd8a6);
           const eyeL = this.add.circle(-5,-7,2,0x33425c), eyeR = this.add.circle(5,-7,2,0x33425c);
           const smile = this.add.arc(0,-3,9,20,155,false,0xa85255,1).setStrokeStyle(1.5,0xa85255,1);
-          const pack = this.add.roundRectangle(-15,5,9,18,4,0xf1a74f);
+          const pack = this.add.rectangle(-15,5,9,18,0xf1a74f).setRounded(4);
           const tuft = this.add.triangle(0,-17,-5,2,0,-8,5,2,0xffd264);
           this.player = this.add.container(480,428,[shadow,pack,body,belly,hood,face,eyeL,eyeR,smile,tuft]).setDepth(5);
           this.physics.add.existing(this.player);
